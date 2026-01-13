@@ -5,26 +5,25 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
 
 @Entity
-@Table(name = "MstGroupMenu")
-public class GroupMenu {
+@Table(name = "MstMenu")
+public class Menu {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDGroup")
+    @Column(name = "IDMenu")
     private Long id;
 
-    @Column(name = "Nama", nullable = false, length = 50, unique = true)
+    @Column(name = "NamaMenu", nullable = false, length = 20, unique = true)
     private String nama;
 
-//    @OneToMany
-//    private List<Menu> menuList;
+    @Column(name = "Path", nullable = false, length = 20)
+    private String path;
 
-    @Column(name = "Deskripsi", nullable = false, length = 50, unique = true)
-    private String deskripsi;
+    @ManyToOne
+    @JoinColumn(name = "IDGroupMenu", nullable = false, foreignKey = @ForeignKey(name = "fk-to-groupMenu"))
+    private GroupMenu groupMenu;
 
     @Column(name = "CreatedBy", nullable = false, updatable = false)
     private Long createdBy=1L;
@@ -56,12 +55,20 @@ public class GroupMenu {
         this.nama = nama;
     }
 
-    public String getDeskripsi() {
-        return deskripsi;
+    public String getPath() {
+        return path;
     }
 
-    public void setDeskripsi(String deskripsi) {
-        this.deskripsi = deskripsi;
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public GroupMenu getGroupMenu() {
+        return groupMenu;
+    }
+
+    public void setGroupMenu(GroupMenu groupMenu) {
+        this.groupMenu = groupMenu;
     }
 
     public Long getCreatedBy() {

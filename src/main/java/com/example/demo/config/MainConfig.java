@@ -4,6 +4,7 @@ package com.example.demo.config;
 import com.example.demo.security.Crypto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -26,5 +27,10 @@ public class MainConfig {
         dataSourceBuilder.password(Crypto.performDecrypt(env.getProperty("spring.datasource.password")));
         dataSourceBuilder.driverClassName(env.getProperty("spring.datasource.driver-class-name"));
         return dataSourceBuilder.build();
+    }
+
+    @Bean
+    public ModelMapper modelMapper(){
+        return new ModelMapper();
     }
 }

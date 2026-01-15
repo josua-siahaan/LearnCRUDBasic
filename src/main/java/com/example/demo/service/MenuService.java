@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.core.IReport;
 import com.example.demo.core.Iservice;
 import com.example.demo.model.Menu;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,8 +13,8 @@ import java.util.List;
 @Transactional
 public class MenuService implements Iservice<Menu>, IReport<Menu> {
     @Override
-    public void insert(Menu menu) {
-
+    public ResponseEntity<Object> insert(Menu menu) {
+        return null;
     }
 
     @Override
@@ -32,8 +33,8 @@ public class MenuService implements Iservice<Menu>, IReport<Menu> {
     }
 
     @Override
-    public List<Menu> findAll() {
-        return List.of();
+    public ResponseEntity<Object> findAll() {
+        return null;
     }
 
     @Override

@@ -1,0 +1,10 @@
+2026-01-21 21:04:04 [http-nio-8080-exec-1] ERROR com.example.demo.util.LoggingFile - 
+ERROR IN CLASS ==> GroupMenuService
+METHOD ==> insert(GroupMenu groupMenu, HttpServletRequest httpServletRequest) -- Line 46
+ERROR IS ==> / by zero
+
+2026-01-28 23:40:10 [http-nio-8080-exec-1] ERROR com.example.demo.util.LoggingFile - 
+ERROR IN CLASS ==> GroupMenuService
+METHOD ==> insert(GroupMenu groupMenu, HttpServletRequest httpServletRequest) -- Line 46{"reqHeader":{"content-length":"69","postman-token":"02ee90e2-52ee-4007-bab4-21a61d17fe91","host":"localhost:8080","content-type":"application\/json","connection":"keep-alive","cache-control":"no-cache","accept-encoding":"gzip, deflate, br","user-agent":"PostmanRuntime\/7.51.0","accept":"*\/*"},"method":"POST","remoteHost":"0:0:0:0:0:0:0:1","session":org.apache.catalina.session.StandardSessionFacade@5f5cf3d9,"serverName":"localhost","isSecure":false,"reqParam":{},"queryString":null,"serverPort":8080,"locale":en_ID,"principal":null,"requestSessionId":null,"reqBody":"{    \"nama\":\"UserManagement\",    \"deskripsi\":\"User Management\"}","authType":null,"pathInfo":null,"remoteAddr":"0:0:0:0:0:0:0:1"}
+ERROR IS ==> / by zero
+

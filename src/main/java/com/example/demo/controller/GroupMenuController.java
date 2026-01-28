@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.validation.ValGroupMenuDTO;
 import com.example.demo.model.GroupMenu;
 import com.example.demo.service.GroupMenuService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class GroupMenuController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> save(@Valid @RequestBody ValGroupMenuDTO valGroupMenuDTO){
-        return groupMenuService.insert(groupMenuService.convertToEntity(valGroupMenuDTO));
+    public ResponseEntity<Object> save(@Valid @RequestBody ValGroupMenuDTO valGroupMenuDTO, HttpServletRequest request){
+        return groupMenuService.insert(groupMenuService.convertToEntity(valGroupMenuDTO), request);
     }
 }

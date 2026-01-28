@@ -31,6 +31,11 @@
 		<mssql.version>12.8.1.jre11</mssql.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
 		<!-- Log4j2 Starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -1,10 +1,14 @@
 package com.example.demo.service;
 
+import com.example.demo.config.OtherConfig;
 import com.example.demo.core.Iservice;
 import com.example.demo.dto.response.RespGroupMenuDTO;
 import com.example.demo.dto.validation.ValGroupMenuDTO;
 import com.example.demo.model.GroupMenu;
 import com.example.demo.repo.GroupMenuRepo;
+import com.example.demo.security.RequestCapture;
+import com.example.demo.util.LoggingFile;
+import jakarta.servlet.http.HttpServletRequest;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +37,19 @@ public class GroupMenuService implements Iservice<GroupMenu> {
     private ModelMapper modelMapper;
 
     @Override
-    public ResponseEntity<Object> insert(GroupMenu groupMenu) {
+    public ResponseEntity<Object> insert(GroupMenu groupMenu, HttpServletRequest request) {
         if (groupMenu==null){
             return ResponseEntity.badRequest().body("USMFV001");
         }
+        try {
+            int intX=1/0;
+        } catch (Exception e) {
+            LoggingFile.logException("GroupMenuService", "insert(GroupMenu groupMenu, HttpServletRequest httpServletRequest) -- Line 46"+ RequestCapture.allRequest(request),
+                    e, OtherConfig.getEnableLog());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("USM01FE001");
+        }
         groupMenuRepo.save(groupMenu);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Succeses Created");
+        return ResponseEntity.status(HttpStatus.CREATED).body("Data Berhasil Disimpan");
     }
 
     @Override

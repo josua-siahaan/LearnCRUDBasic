@@ -1,7 +1,6 @@
 package com.example.demo.dto.validation;
 
-import com.example.demo.dto.report.RepGroupMenuDTO;
-import com.example.demo.model.GroupMenu;
+import com.example.demo.dto.rel.RelGroupMenuDTO;
 
 public class ValMenuDTO {
 
@@ -9,7 +8,7 @@ public class ValMenuDTO {
 
     private String path;
 
-    private RepGroupMenuDTO groupMenu;
+    private RelGroupMenuDTO groupMenu;
 
 
     public String getNama() {
@@ -28,11 +27,11 @@ public class ValMenuDTO {
         this.path = path;
     }
 
-    public RepGroupMenuDTO getGroupMenu() {
+    public RelGroupMenuDTO getGroupMenu() {
         return groupMenu;
     }
 
-    public void setGroupMenu(RepGroupMenuDTO groupMenu) {
+    public void setGroupMenu(RelGroupMenuDTO groupMenu) {
         this.groupMenu = groupMenu;
     }
 }

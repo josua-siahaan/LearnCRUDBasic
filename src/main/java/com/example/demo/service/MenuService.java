@@ -4,9 +4,9 @@ import com.example.demo.core.IReport;
 import com.example.demo.core.Iservice;
 import com.example.demo.model.Menu;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.transaction.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

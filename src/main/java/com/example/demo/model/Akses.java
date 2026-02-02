@@ -5,25 +5,20 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "MstGroupMenu")
-public class GroupMenu {
-
+@Table(name = "MstAkses")
+public class Akses {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDGroupMenu")
+    @Column(name = "IDAKses")
     private Long id;
 
-    @Column(name = "Nama", nullable = false, length = 50, unique = true)
+    @Column(name = "NamaAkses", unique = true, nullable = false, length = 20)
     private String nama;
 
-//    @OneToMany
-//    private List<Menu> menuList;
-
-    @Column(name = "Deskripsi", nullable = false, length = 50, unique = true)
+    @Column(name = "DeskripsiAkses", nullable = false, length = 100)
     private String deskripsi;
 
     @Column(name = "CreatedBy", nullable = false, updatable = false)
@@ -39,6 +34,13 @@ public class GroupMenu {
     @Column(name = "ModifiedDate", insertable = false)
     @UpdateTimestamp
     private LocalDateTime modifiedDate;
+
+    @ManyToMany
+    @JoinTable(name = "MapAksesMenu", uniqueConstraints =
+    @UniqueConstraint(name = "unq-akses-to-menu", columnNames = {"IDAkses","IDMenu"}),
+    joinColumns = @JoinColumn(name = "IDAkses", foreignKey = @ForeignKey(name = "fk-to-Akses")),
+    inverseJoinColumns = @JoinColumn(name = "IDMenu", foreignKey = @ForeignKey(name = "fk-to-Menu")))
+    private List<Menu> ltMenu;
 
     public Long getId() {
         return id;
@@ -94,5 +96,13 @@ public class GroupMenu {
 
     public void setModifiedDate(LocalDateTime modifiedDate) {
         this.modifiedDate = modifiedDate;
+    }
+
+    public List<Menu> getLtMenu() {
+        return ltMenu;
+    }
+
+    public void setLtMenu(List<Menu> ltMenu) {
+        this.ltMenu = ltMenu;
     }
 }

@@ -8,7 +8,7 @@ public class ValGroupMenuDTO {
     @Pattern(regexp = "^[\\w\\s]{5,50}$")
     private String nama;
 
-    @Pattern(regexp = "^[\\w\\s]{5,50}$")
+    @Pattern(regexp = "^[\\w\\s]{5,100}$")
     private String deskripsi;
 
     public String getNama() {

@@ -10,6 +10,7 @@ import com.example.demo.repo.AksesRepo;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -26,28 +27,33 @@ public class AksesService implements Iservice<Akses> {
 
 
     @Override
-    public ResponseEntity<Object> insert(Akses akses, HttpServletRequest request) {
+    public ResponseEntity<Object> save(Akses akses, HttpServletRequest request) {
         aksesRepo.save(akses);
         return ResponseEntity.status(HttpStatus.CREATED).body("Berhasil di Simpan");
     }
 
     @Override
-    public void update(Long id, Akses akses) {
-
-    }
-
-    @Override
-    public void delete(Long id) {
-
-    }
-
-    @Override
-    public Akses findBy(Long id) {
+    public ResponseEntity<Object> update(Long id, Akses akses, HttpServletRequest request) {
         return null;
     }
 
     @Override
-    public ResponseEntity<Object> findAll() {
+    public ResponseEntity<Object> delete(Long id, HttpServletRequest request) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<Object> findAll(Pageable pageable, HttpServletRequest request) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<Object> findById(Long id, HttpServletRequest request) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<Object> findByParam(Pageable pageable, String columnName, String value, HttpServletRequest request) {
         return null;
     }
 

@@ -20,6 +20,6 @@ public class AksesController {
 
     @PostMapping
     public ResponseEntity<Object> save(@Valid @RequestBody ValAksesDTO valAksesDTO, HttpServletRequest request){
-        return aksesService.insert(aksesService.convertToEntity(valAksesDTO), request);
+        return aksesService.save(aksesService.convertToEntity(valAksesDTO), request);
     }
 }

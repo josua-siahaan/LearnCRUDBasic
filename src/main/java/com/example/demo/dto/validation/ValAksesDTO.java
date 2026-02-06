@@ -1,24 +1,20 @@
 package com.example.demo.dto.validation;
 
 import com.example.demo.dto.rel.RelMenuDTO;
+import jakarta.validation.constraints.Pattern;
+
 import java.util.List;
 
 public class ValAksesDTO {
-    private Long id;
 
+    @Pattern(regexp = "^[\\w\\s]{5,50}$", message = "Alfanumerik dengan spasi minimal 5 maks 50 karakter")
     private String nama;
 
+    @Pattern(regexp = "^[\\w\\s]{5,100}$", message = "Alfanumerik dengan spasi minimal 5 maks 100 karakter")
     private String deskripsi;
 
     private List<RelMenuDTO> ltMenu;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNama() {
         return nama;

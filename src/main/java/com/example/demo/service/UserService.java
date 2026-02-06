@@ -1,26 +1,32 @@
 package com.example.demo.service;
 
-import com.example.demo.core.IReport;
 import com.example.demo.core.Iservice;
-import com.example.demo.model.Menu;
+import com.example.demo.model.User;
+import com.example.demo.repo.UserRepo;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 @Transactional
-public class MenuService implements Iservice<Menu>, IReport<Menu> {
+public class UserService implements Iservice<User> {
+    @Autowired
+    private UserRepo userRepo;
+
+    @Autowired
+    private ModelMapper modelMapper;
+
     @Override
-    public ResponseEntity<Object> save(Menu menu, HttpServletRequest httpServletRequest) {
+    public ResponseEntity<Object> save(User user, HttpServletRequest request) {
         return null;
     }
 
     @Override
-    public ResponseEntity<Object> update(Long id, Menu menu, HttpServletRequest request) {
+    public ResponseEntity<Object> update(Long id, User user, HttpServletRequest request) {
         return null;
     }
 
@@ -42,30 +48,5 @@ public class MenuService implements Iservice<Menu>, IReport<Menu> {
     @Override
     public ResponseEntity<Object> findByParam(Pageable pageable, String columnName, String value, HttpServletRequest request) {
         return null;
-    }
-
-    @Override
-    public void uploadExcel(Menu menu) {
-
-    }
-
-    @Override
-    public void dowloadExcel(Menu menu) {
-
-    }
-
-    @Override
-    public void uploadImage(Menu menu) {
-
-    }
-
-    @Override
-    public void dowloadImage(Menu menu) {
-
-    }
-
-    @Override
-    public void dowloadPdf(Menu menu) {
-
     }
 }

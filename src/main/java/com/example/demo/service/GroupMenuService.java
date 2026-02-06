@@ -13,6 +13,7 @@ import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -37,7 +38,7 @@ public class GroupMenuService implements Iservice<GroupMenu> {
     private ModelMapper modelMapper;
 
     @Override
-    public ResponseEntity<Object> insert(GroupMenu groupMenu, HttpServletRequest request) {
+    public ResponseEntity<Object> save(GroupMenu groupMenu, HttpServletRequest request) {
         if (groupMenu==null){
             return ResponseEntity.badRequest().body("USMFV001");
         }
@@ -53,24 +54,28 @@ public class GroupMenuService implements Iservice<GroupMenu> {
     }
 
     @Override
-    public void update(Long id, GroupMenu groupMenu) {
-
-    }
-
-    @Override
-    public void delete(Long id) {
-
-    }
-
-    @Override
-    public GroupMenu findBy(Long id) {
+    public ResponseEntity<Object> update(Long id, GroupMenu groupMenu, HttpServletRequest request) {
         return null;
     }
 
     @Override
-    public ResponseEntity<Object> findAll() {
-        List<RespGroupMenuDTO> list = convertToRespGroupMenuDTO(groupMenuRepo.findAll());
-        return ResponseEntity.ok(list);
+    public ResponseEntity<Object> delete(Long id, HttpServletRequest request) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<Object> findAll(Pageable pageable, HttpServletRequest request) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<Object> findById(Long id, HttpServletRequest request) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<Object> findByParam(Pageable pageable, String columnName, String value, HttpServletRequest request) {
+        return null;
     }
 
     public List<RespGroupMenuDTO> convertToRespGroupMenuDTO(List<GroupMenu> groupMenus){

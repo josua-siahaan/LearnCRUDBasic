@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class GroupMenuController {
     private GroupMenuService groupMenuService;
 
     @GetMapping
+    @PreAuthorize("hasAuthority('GroupMenu)")
     public ResponseEntity<Object> findAll(Pageable pageable, HttpServletRequest request){
         return groupMenuService.findAll(pageable, request);
     }

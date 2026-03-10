@@ -9,6 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 public class JwtConfig {
     private static String secretKey;
     private static Long timeExpiration;
+    private static String tokenEncryptEnable;
 
     public static String getSecretKey() {
         return secretKey;
@@ -26,5 +27,14 @@ public class JwtConfig {
     @Value("${time.expiration}")
     private void setTimeExpiration(Long timeExpiration) {
         JwtConfig.timeExpiration = timeExpiration;
+    }
+
+    public static String getTokenEncryptEnable() {
+        return tokenEncryptEnable;
+    }
+
+    @Value("${token.enable.encrypt}")
+    private void setTokenEncryptEnable(String tokenEncryptEnable) {
+        JwtConfig.tokenEncryptEnable = tokenEncryptEnable;
     }
 }
